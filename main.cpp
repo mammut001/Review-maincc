@@ -60,14 +60,16 @@ using std::endl;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        std::map<std::string, int> dic;
+        std::map<int, int> dic;
         for(int i = 0; i < nums.size(); i++){
             int result = target - nums[i];
-            if(result)
-            cout << result << endl;
-
-
+            if(dic.find(result) != dic.end()){
+                return {dic[result],i};
+            }
+            else{
+                dic[nums[i]] = i;
+            }
         }
-        return {1,2};
+        return {};
     }
 };
